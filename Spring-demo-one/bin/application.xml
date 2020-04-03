@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans  
+    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">  
+  
+  
+<!-- dependency object -->
+<bean id="myFortune" class="com.love2.mahavir.HappyFortune">  
+</bean>
+  
+  
+<bean id="myTest" class="com.love2.mahavir.TenisCoach">  
+  <!-- set up constructor injection -->
+   <constructor-arg ref="myFortune"/>
+
+</bean>  
+ 
+ 
+ <bean id="cricketCoach" class="com.love2.mahavir.CricketCoach">
+ <property name="fortuneService" ref="myFortune">
+ </property>
+ <property name="email" value="vivek@gmail.com"></property>
+ <property name="team" value="Bangalore Team"></property>
+ 
+ </bean>
+  
+</beans>  
